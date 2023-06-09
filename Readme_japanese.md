@@ -1,19 +1,17 @@
-# How to manage packages in development of frontend in Javascript
-Evne on the frontend development in JavaScript, package management tools based on node.js contribute a lot.
-This is the memorandam of management of packages in Javascript
+# フロントエンドの開発方法
+JavaScript を開発するにあたり、フロントエンド開発でも　node.js　をベースとしたパッケージ管理をした方が良いようなので、メモ。
 
-## Technologies
-- node.js : development environment basiaclly used for backend
-- npm : package management
-  - yarn : alternative of npm with more fuctions
-- webpack : wrap up all the packages into one file
-  - webpack-dev-server : automatically reload the page when the source code is changed
-- vscode : editor
+## 技術
+- node.js : 開発環境
+- npm : パッケージマネージャ
+  - yarn : パッケージ管理
+- webpack : パッケージをまとめてビルドする。
+- vscode : エディタ
 
-## Case1: without npm
+## JavaScriptのみの場合
 <details>
 <summary>
-Code sample
+コードサンプル
 </summary>
 
 #### .vscode/launch.json
@@ -66,7 +64,7 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
 <details>
 <summary>
-Folder structure
+フォルダ構成例
 </summary>
 
 ```
@@ -85,38 +83,26 @@ Folder structure
 
 </details>
 
-## Case2: with npm
+## npmを使った場合
 
 <details>
 <summary>
-Code sample
+コードサンプル
 </summary>
 
-0. install node.js and npm
-
-[Node.js](https://nodejs.org/en/download)
-
-or 
-
-```
-brew install node
-```
-
-
-1. Initialize npm in a project folder
+1. npmの初期化
 ```
 npm init -y
 ```
 
-1. Install packages
+1. パッケージのインストール
 ```
 npm install -D webpack webpack-cli webpack-dev-server
 ```
 
-1. Customize package.json
-Thip help you unifiy the command from "npx webpack" to "npm run build".
-it also enables boot webpack-dev-server with "npm run start".
-
+1. package.jsonのカスタマイズ
+npx webpackではなく、npm run buildでOKになる。
+また、npm run startでwebpack-dev-serverが起動するようになる。
 ``` json
 {
   "scripts": {
@@ -132,7 +118,7 @@ it also enables boot webpack-dev-server with "npm run start".
 }
 ```
 
-1. Customize webpack.config.js
+1. webpack.config.jsのカスタマイズ
 
 ``` javascript:webpack.config.js
 module.exports = {
@@ -160,7 +146,7 @@ module.exports = {
 };
 ```
 
-1. Create ./dist/index.html
+1. ./dist/index.htmlの作成
 ``` html:./dist/index.html
 <!doctype html>
 <html lang="en">
@@ -173,7 +159,7 @@ module.exports = {
 </html>
 ```
 
-1. Create ./src/index.js
+1. ./src/index.jsの作成
 
 ``` javascript:./src/index.js
 // import 文を使って sub.js ファイルを読み込む。
@@ -183,20 +169,20 @@ import { hello } from "./sub";
 hello();
 ```
 
-1. Create sub.js
+1. sub.jsの作成
 ``` javascript:./src/sub.js
 export function hello() {
   alert("Hello Webpack!");
 }
 ```
 
-1. Start auto reload server
+1. 自動リロードの実行
 
 ```
 rpm run start
 ```
 
-1. Build
+1. ビルド
 ```
 npm run build
 ```
@@ -205,7 +191,7 @@ npm run build
 
 <details>
 <summary>
-Folder structure
+フォルダ構成例
 </summary>
 
 ```
@@ -223,7 +209,7 @@ Folder structure
 ```
 </details>
 
-## Reference: sorry for Japanese
+## 参考サイト
 
 [webpackシンプルな回答](https://teratail.com/questions/335567)
 [webpack概要](https://ics.media/entry/12140/)

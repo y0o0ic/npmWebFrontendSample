@@ -26,7 +26,7 @@ JavaScript を開発するにあたり、フロントエンド開発でも　nod
             "url": "http://127.0.0.1:5500/index.html",
             "webRoot": "${workspaceFolder}",
             "pathMapping": {
-                "http://127.0.0.1:5500":"/Users/ichinose/code/StripMethod"
+                "http://127.0.0.1:5500":"/Path/To/Code"
             }
         }
     ]
